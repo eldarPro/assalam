@@ -5,4 +5,13 @@ if [ "${@: -2:1}" == "./bin/rails" ] && [ "${@: -1:1}" == "server" ]; then
   ./bin/rails db:prepare
 fi
 
+# Ждём, пока база запустится
+until pg_isready -h "$DATABASE_HOST" -U "$DATABASE_USER"; do
+  echo "Waiting for PostgreSQL..."
+  sleep 1
+done
+
+# Создаём базу (если ещё нет) и применяем миграции
+bundle exec rails db:create db:migrate 2>/dev/null || true
+
 exec "${@}"
