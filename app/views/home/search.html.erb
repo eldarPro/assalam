@@ -1,0 +1,51 @@
+<div class="search-block">
+  <form action="#" class="search-block__form">
+    <input type="search" name="search" class="input input--search" placeholder="Поиск по сайту">
+  </form>
+
+  <div class="search-block__now">
+    <div class="search-block__now-title">Сейчас ищут</div>
+
+    <div class="tags">
+      <a href="#" class="tag">признаки сихра</a>
+      <a href="#" class="tag">виды джиннов</a>
+      <a href="#" class="tag">окрашивание ногтей</a>
+      <a href="#" class="tag">дуа из Священного Корана</a>
+      <a href="#" class="tag">признаки сихра</a>
+      <a href="#" class="tag">виды джиннов</a>
+      <a href="#" class="tag">окрашивание ногтей</a>
+      <a href="#" class="tag">дуа из Священного Корана</a>
+    </div>
+  </div>
+
+  <div class="search-block__results">
+    <% 10.times do %>
+      <div class=" card-news">
+        <div class="card-news__content">
+          <div class="card-news__header">
+
+            <button type="button" class="favorite ">
+              <svg class="icon">
+                <use xlink:href="./img/sprite.svg#bookmark"></use>
+              </svg>
+            </button>
+          </div>
+          <div class="card-news__body">
+            <a href="#" class="card-news__title">70% верующей молодежи доверяет Муфтияту Дагестана</a>
+            <div class="card-news__text">В журнале «Исламоведение» (ДГУ) вышло исследование доктора социологических наук Мадины Шахбановой, об отношении молодежи к Муфтияту Дагестана.</div>
+          </div>
+          <div class="card-news__footer">
+            <div class="views">
+              <svg class="icon">
+                <use xlink:href="<%= asset_path('sprite.svg') %>#eye"></use>
+              </svg>
+              <span>1,3k</span>
+            </div>
+            <div class="card-news__date">Вчера</div>
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

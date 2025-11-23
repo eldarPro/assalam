@@ -24,6 +24,7 @@ services:
     depends_on:
       - db
     environment:
+      RAILS_ENV: development
       DATABASE_HOST: db
       DATABASE_USER: user
       DATABASE_PASSWORD: userpass

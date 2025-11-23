@@ -9,14 +9,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= yield :head %>
-
     <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
     <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
 
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
+    <link rel="icon" href='assets/images/icon.png' type="image/png">
+    <link rel="icon" href='assets/images/icon.svg' type="image/svg+xml">
+    <link rel="apple-touch-icon" href='assets/images/icon.png'>
 
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
@@ -24,6 +22,541 @@
   </head>
 
   <body>
-    <%= yield %>
+  <div class="page-wrapper">
+    <div class="download-app">
+      <div class="container">
+        <div class="download-app__inner">
+          <div class="download-app__wrap">
+            <img src="./img/app-icon.svg" width="32" height="32" loading="lazy" alt="">
+            <div class="download-app__content">
+              <div class="download-app__title">Добрая газета АС-САЛАМ</div>
+              <div class="download-app__subtitle">Загрузите приложение</div>
+            </div>
+          </div>
+          <a href="#" target="_blank" class="download-app__link">Загрузить</a>
+        </div>
+      </div>
+    </div>
+
+    <header class="header">
+      <div class="container">
+        <div class="header__inner">
+          <a href="/" class="header__logo">
+            <img src="<%= asset_path('logo.svg') %>" width="203" height="44" alt="">
+          </a>
+          <div class="header__controls-wrap">
+            <div class="header__controls">
+              <a href="/search" class="btn btn--tertiary header__control">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#search"></use>
+                </svg>
+                <span>Поиск</span>
+              </a>
+              <button type="button" class="btn btn--tertiary header__control menu-btn-open">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#menu"></use>
+                </svg>
+                <span>Навигация</span>
+              </button>
+            </div>
+            <div class="header__controls">
+
+              <button type="button" class="btn header__control-subscribe">Оформить подписку</button>
+              <button type="button" class="btn btn--secondary header__control" data-modal="modal-login">Вход</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="header-navigation">
+      <div class="container">
+        <div class="header-navigation__inner">
+          <a href="/" class="header-navigation__logo">
+            <img src="assets/logo-small.svg" width="38" height="32" loading="lazy" alt="">
+          </a>
+          <div class="header-navigation__links">
+            <a href='/category' class="header-navigation__link">Актуально</a>
+            <a href='/category' class="header-navigation__link">Общество</a>
+            <a href='/category' class="header-navigation__link">Религия</a>
+            <a href='/category' class="header-navigation__link">Социальная</a>
+            <a href='/category' class="header-navigation__link">Психология</a>
+            <a href='/category' class="header-navigation__link">Женская</a>
+            <a href='/category' class="header-navigation__link">Детская</a>
+            <a href='/category' class="header-navigation__link">Медицина</a>
+            <a href='/category' class="header-navigation__link">Спорт</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu">
+      <div class="container">
+        <div class="menu__inner">
+          <div class="menu__left">
+            <div class="menu__title">Сервисы</div>
+            <div class="menu__wrap">
+              <a href="/profile.html" class="aside-profile__link">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#news"></use>
+                </svg>
+                <span>Газета</span>
+              </a>
+              <a href="/profile.html" class="aside-profile__link">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#volume"></use>
+                </svg>
+                <span>Аудио-газета</span>
+              </a>
+              <a href="/profile.html" class="aside-profile__link">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#question"></use>
+                </svg>
+                <span>Задать вопрос</span>
+              </a>
+              <a href="/profile.html" class="aside-profile__link">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#map-pin"></use>
+                </svg>
+                <span>Места намаза</span>
+              </a>
+            </div>
+
+            <div class="menu__contact">
+              <div class="contact">
+                <a href="+78006006508" class="contact__link">8 800 600 65 08</a>
+                <div class="contact__description">бесплатно по&nbsp;России</div>
+              </div>
+            </div>
+          </div>
+          <div class="menu__center">
+            <div class="menu__title">Категории материалов</div>
+            <div class="menu__grid">
+              <a href='/category' class="menu__link">Актуально</a>
+              <a href='/category' class="menu__link">Колонка редактора</a>
+              <a href='/category' class="menu__link">Детская</a>
+              <a href='/category' class="menu__link">Религия</a>
+              <a href='/category' class="menu__link">Психология</a>
+              <a href='/category' class="menu__link">Медицина</a>
+              <a href='/category' class="menu__link">Социальная</a>
+              <a href='/category' class="menu__link">Ханафитский мазхаб</a>
+              <a href='/category' class="menu__link">Здоровое питание</a>
+              <a href='/category' class="menu__link">Линия&nbsp;— доверия</a>
+              <a href='/category' class="menu__link">Бионика</a>
+              <a href='/category' class="menu__link">Спорт</a>
+              <a href='/category' class="menu__link">Экология</a>
+              <a href='/category' class="menu__link">История</a>
+              <a href='/category' class="menu__link">Познавательно</a>
+              <a href='/category' class="menu__link">Интервью</a>
+              <a href='/category' class="menu__link">Человек труда</a>
+              <a href='/category' class="menu__link">Вопрос-ответ</a>
+              <a href='/category' class="menu__link">Общество</a>
+              <a href='/category' class="menu__link">Женская</a>
+            </div>
+          </div>
+          <div class="menu__right">
+            <div class="menu__title">На&nbsp;других языках</div>
+            <div class="menu__tags">
+              <a href="#" class="tag">English</a>
+              <a href="#" class="tag">Türkiye</a>
+              <a href="#" class="tag">Azərbaycan</a>
+              <a href="#" class="tag">Тоҷикӣ</a>
+              <a href="#" class="tag">Даргала</a>
+              <a href="#" class="tag">Магlарул</a>
+              <a href="#" class="tag">Татар</a>
+              <a href="#" class="tag">Къумукъ</a>
+              <a href="#" class="tag">Лезги</a>
+              <a href="#" class="tag">Табасаран</a>
+              <a href="#" class="tag">Лакрал</a>
+              <a href="#" class="tag">Башҡортса</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main class="main">
+      <div class="container">
+        <div class="main__inner">
+          <div class="main__content">
+            <%= yield %>
+          </div>
+          <aside class="news-short">
+
+            <div class="card-news-short">
+              <div class="card-news-short__title">
+                <a href="#" class="card-news-short__link">Признаки сихра (колдовство) и&nbsp;какие Аяты следует читать.</a>
+              </div>
+              <div class="views card-news-short__views">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#eye"></use>
+                </svg>
+                <span>1,3k</span>
+              </div>
+            </div>
+
+            <div class="card-news-short">
+              <div class="card-news-short__title">
+                <a href="#" class="card-news-short__link">Лечение от&nbsp;влюблённого джинна.</a>
+              </div>
+              <div class="views card-news-short__views">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#eye"></use>
+                </svg>
+                <span>871</span>
+              </div>
+            </div>
+
+            <div class="card-news-short">
+              <div class="card-news-short__title">
+                <a href="#" class="card-news-short__link">10 дуа Посланника Аллаhа ﷺ </a>
+              </div>
+              <div class="views card-news-short__views">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#eye"></use>
+                </svg>
+                <span>5,9k</span>
+              </div>
+            </div>
+
+            <div class="card-news-short">
+              <div class="card-news-short__title">
+                <a href="#" class="card-news-short__link">11 дуа из&nbsp;Священного Корана</a>
+              </div>
+              <div class="views card-news-short__views">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#eye"></use>
+                </svg>
+                <span>5,9k</span>
+              </div>
+            </div>
+
+            <div class="card-news-short">
+              <div class="card-news-short__title">
+                <a href="#" class="card-news-short__link">Эртугрул&nbsp;— 600 лет правления Османов</a>
+              </div>
+              <div class="views card-news-short__views">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#eye"></use>
+                </svg>
+                <span>5,9k</span>
+              </div>
+            </div>
+
+            <div class="card-news-short">
+              <div class="card-news-short__title">
+                <a href="#" class="card-news-short__link">Сихр&nbsp;— колдовство. Виды колдовства (продолжение)</a>
+              </div>
+              <div class="views card-news-short__views">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#eye"></use>
+                </svg>
+                <span>5,9k</span>
+              </div>
+            </div>
+
+            <div class="card-news-short">
+              <div class="card-news-short__title">
+                <a href="#" class="card-news-short__link">Сихр&nbsp;— колдовство (продолжение)</a>
+              </div>
+              <div class="views card-news-short__views">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#eye"></use>
+                </svg>
+                <span>5,9k</span>
+              </div>
+            </div>
+
+            <div class="card-news-short">
+              <div class="card-news-short__title">
+                <a href="#" class="card-news-short__link">Говорят, что во&nbsp;время беременности женщине нельзя стричься. Так&nbsp;ли это?</a>
+              </div>
+              <div class="views card-news-short__views">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#eye"></use>
+                </svg>
+                <span>5,9k</span>
+              </div>
+            </div>
+
+            <div class="card-news-short">
+              <div class="card-news-short__title">
+                <a href="#" class="card-news-short__link">Виды джиннов</a>
+              </div>
+              <div class="views card-news-short__views">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#eye"></use>
+                </svg>
+                <span>5,9k</span>
+              </div>
+            </div>
+
+          </aside>
+
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__inner">
+          <div class="footer__col footer__col--1 footer__col--max">
+            <a href="#" class="btn btn--tertiary footer__btn-support">Написать в&nbsp;службу поддержки</a>
+            <div class="mail">
+              <img class="mail__logo" src="<%= asset_path('logo-russian-post.png') %>" srcset="<%= asset_path('logo-russian-post@2x.png') %> 2x" width="60" height="60" loading="lazy" alt="">
+              <div class="mail__content">
+                <div class="mail__index"><b>ПА166</b>&nbsp;— индекс на&nbsp;полгода,</div>
+                <div class="mail__index"><b>ПО495</b>&nbsp;— индекс на&nbsp;год.</div>
+                <div class="mail__description">Подписка в&nbsp;любом отделении</div>
+              </div>
+            </div>
+            <div class="footer__meta">
+              <div class="footer__age">12+</div>
+              <a href="#" target="_blank" class="footer__app-link">
+                <img src="<%= asset_path('logo-appstore.svg') %>" width="140" height="44" loading="lazy" alt="">
+              </a>
+              <a href="#" target="_blank" class="footer__app-link">
+                <img src="<%= asset_path('logo-googleplay.svg') %>" width="140" height="44" loading="lazy" alt="">
+              </a>
+            </div>
+          </div>
+          <div class="footer__col footer__col--2">
+            <div class="footer__text">
+              <p>Всероссийская духовно-просветительская газета «Ас-салам». Издаётся с&nbsp;1994&nbsp;года.</p>
+              <p>Газета зарегистрирована Федеральной службой по&nbsp;надзору в&nbsp;сфере связи, информационных технологий и&nbsp;массовых коммуникаций. Свидетельство о&nbsp;регистрации ПИ&nbsp;номер ФС&nbsp;77–76655&nbsp;от&nbsp;26.08.2019&nbsp;г.</p>
+            </div>
+            <div class="footer__text footer__text--gray">
+              <p>Сайт использует IP&nbsp;адреса, cookie и&nbsp;данные геолокации пользователей сайта, условия использования содержатся&nbsp;в&nbsp;<a href="#">правилах&nbsp;обработки данных</a>.</p>
+              <p>© БФ&nbsp;«Путь» 1994–2024 | Дизайн&nbsp;— DEFIS Agency <a href="#" target="_blank">Написать в&nbsp;телеграм</a></p>
+            </div>
+          </div>
+          <div class="footer__col footer__col--3 footer__col--max">
+            <div class="contact">
+              <a href="+78006006508" class="contact__link">8 800 600 65 08</a>
+              <div class="contact__description">бесплатно по&nbsp;России</div>
+            </div>
+            <div class="contact">
+              <a href="tel:+79285305970" class="contact__link">8 928 530 59 70</a>
+              <div class="contact__description">редакция</div>
+            </div>
+            <div class="contact">
+              <a href="mailto:assalamweb@gmail.com" class="contact__link">assalamweb@gmail.com</a>
+              <div class="contact__description">предложения и&nbsp;сотрудничество</div>
+            </div>
+            <div class="socials">
+              <a href="#" target="_blank" class="socials__link">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#tg"></use>
+                </svg>
+              </a>
+              <a href="#" target="_blank" class="socials__link">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#vk"></use>
+                </svg>
+              </a>
+              <a href="#" target="_blank" class="socials__link">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#ok"></use>
+                </svg>
+              </a>
+              <a href="#" target="_blank" class="socials__link">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#yt"></use>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="dropdown-menu dropdown-nav" data-dropdown-popper="user">
+      <a href="#" class="dropdown-nav__control">
+        <svg class="icon">
+          <use xlink:href="<%= asset_path('sprite.svg') %>#user"></use>
+        </svg>
+        <span>Профиль</span>
+      </a>
+      <a href="#" class="dropdown-nav__control">
+        <svg class="icon">
+          <use xlink:href="<%= asset_path('sprite.svg') %>#bookmark"></use>
+        </svg>
+        <span>Закладки</span>
+      </a>
+      <a href="#" class="dropdown-nav__control">
+        <svg class="icon">
+          <use xlink:href="<%= asset_path('sprite.svg') %>#info"></use>
+        </svg>
+        <span>О&nbsp;подписке</span>
+      </a>
+      <a href="#" class="dropdown-nav__control dropdown-nav__control--red">
+        <svg class="icon">
+          <use xlink:href="<%= asset_path('sprite.svg') %>#exit"></use>
+        </svg>
+        <span>Выход</span>
+      </a>
+    </div>
+
+    <div id="modal-login" class="modal" style="max-width: 500px;">
+      <div class="modal__container">
+        <input type="radio" name="form-type" id="login-content" class="modal__toggle-input" checked="">
+        <input type="radio" name="form-type" id="registration-content" class="modal__toggle-input">
+        <div class="modal__header">
+          <label for="login-content" class="modal__toggle">Вход</label>
+          <label for="registration-content" class="modal__toggle">Регистрация</label>
+        </div>
+        <div class="modal__content" data-type="login-content">
+          <form action="#" class="modal__form">
+            <div class="modal__form-body">
+              <div class="form-element">
+                <div class="phone-multi">
+                  <input type="hidden" name="phone" class="phone-multi__input-value">
+                  <div class="phone-multi__inner">
+                    <button type="button" class="phone-multi__country-btn">
+                      <img src="assets/flags/RU.svg" alt="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M7.5 12L2.73686 5.25L12.2631 5.25L7.5 12Z" fill="#8291AF"></path>
+                      </svg>
+                    </button>
+                    <label class="phone-multi__input-wrap">
+                      <span class="phone-multi__code">+7</span>
+                      <input type="tel" class="phone-multi__input" placeholder="(___) ___-__-__" inputmode="text">
+                    </label>
+                  </div>
+                  <div class="phone-multi__dropdown">
+                    <input type="text" class="phone-multi__search" placeholder="Поиск по странам">
+                    <div class="phone-multi__country-list"><button type="button" data-value="AF" class="phone-multi__country">Афганистан</button><button type="button" data-value="AX" class="phone-multi__country">Аландские острова</button><button type="button" data-value="AL" class="phone-multi__country">Албания</button><button type="button" data-value="DZ" class="phone-multi__country">Алжир</button><button type="button" data-value="AD" class="phone-multi__country">Андорра</button><button type="button" data-value="AO" class="phone-multi__country">Ангола</button><button type="button" data-value="AI" class="phone-multi__country">Ангилья</button><button type="button" data-value="AG" class="phone-multi__country">Антигуа и Барбуда</button><button type="button" data-value="AR" class="phone-multi__country">Аргентина</button><button type="button" data-value="AM" class="phone-multi__country">Армения</button><button type="button" data-value="AW" class="phone-multi__country">Аруба</button><button type="button" data-value="AU" class="phone-multi__country">Австралия</button><button type="button" data-value="AT" class="phone-multi__country">Австрия</button><button type="button" data-value="AZ" class="phone-multi__country">Азербайджан</button><button type="button" data-value="BS" class="phone-multi__country">Багамские острова</button><button type="button" data-value="BH" class="phone-multi__country">Бахрейн</button><button type="button" data-value="BD" class="phone-multi__country">Бангладеш</button><button type="button" data-value="BB" class="phone-multi__country">Барбадос</button><button type="button" data-value="BY" class="phone-multi__country">Беларусь</button><button type="button" data-value="BE" class="phone-multi__country">Бельгия</button><button type="button" data-value="BZ" class="phone-multi__country">Белиз</button><button type="button" data-value="BJ" class="phone-multi__country">Бенин</button><button type="button" data-value="BM" class="phone-multi__country">Бермуды</button><button type="button" data-value="BT" class="phone-multi__country">Бутан</button><button type="button" data-value="BO" class="phone-multi__country">Боливия</button><button type="button" data-value="BA" class="phone-multi__country">Босния и Герцеговина</button><button type="button" data-value="BW" class="phone-multi__country">Ботсвана</button><button type="button" data-value="BR" class="phone-multi__country">Бразилия</button><button type="button" data-value="BN" class="phone-multi__country">Бруней-Даруссалам</button><button type="button" data-value="BG" class="phone-multi__country">Болгария</button><button type="button" data-value="BF" class="phone-multi__country">Буркина-Фасо</button><button type="button" data-value="BI" class="phone-multi__country">Бурунди</button><button type="button" data-value="KH" class="phone-multi__country">Камбоджа</button><button type="button" data-value="CM" class="phone-multi__country">Камерун</button><button type="button" data-value="CA" class="phone-multi__country">Канада</button><button type="button" data-value="CV" class="phone-multi__country">Кабо-Верде</button><button type="button" data-value="KY" class="phone-multi__country">Каймановы острова</button><button type="button" data-value="CF" class="phone-multi__country">Центральноафриканская Республика</button><button type="button" data-value="TD" class="phone-multi__country">Чад</button><button type="button" data-value="CL" class="phone-multi__country">Чили</button><button type="button" data-value="CN" class="phone-multi__country">Китай</button><button type="button" data-value="CX" class="phone-multi__country">Остров Рождества</button><button type="button" data-value="CC" class="phone-multi__country">Кокосовые (Килинг) острова</button><button type="button" data-value="CO" class="phone-multi__country">Колумбия</button><button type="button" data-value="KM" class="phone-multi__country">Коморы</button><button type="button" data-value="CG" class="phone-multi__country">Конго</button><button type="button" data-value="CK" class="phone-multi__country">Острова Кука</button><button type="button" data-value="CR" class="phone-multi__country">Коста-Рика</button><button type="button" data-value="HR" class="phone-multi__country">Хорватия</button><button type="button" data-value="CU" class="phone-multi__country">Куба</button><button type="button" data-value="CY" class="phone-multi__country">Кипр</button><button type="button" data-value="CZ" class="phone-multi__country">Чехия</button><button type="button" data-value="CD" class="phone-multi__country">Демократическая Республика Конго</button><button type="button" data-value="DK" class="phone-multi__country">Дания</button><button type="button" data-value="DJ" class="phone-multi__country">Джибути</button><button type="button" data-value="DM" class="phone-multi__country">Доминика</button><button type="button" data-value="DO" class="phone-multi__country">Доминиканская Республика</button><button type="button" data-value="EC" class="phone-multi__country">Эквадор</button><button type="button" data-value="EG" class="phone-multi__country">Египет</button><button type="button" data-value="SV" class="phone-multi__country">Сальвадор</button><button type="button" data-value="GQ" class="phone-multi__country">Экваториальная Гвинея</button><button type="button" data-value="ER" class="phone-multi__country">Эритрея</button><button type="button" data-value="EE" class="phone-multi__country">Эстония</button><button type="button" data-value="SZ" class="phone-multi__country">Эсватини</button><button type="button" data-value="ET" class="phone-multi__country">Эфиопия</button><button type="button" data-value="FK" class="phone-multi__country">Фолклендские (Мальвинские) острова</button><button type="button" data-value="FO" class="phone-multi__country">Фарерские острова</button><button type="button" data-value="FJ" class="phone-multi__country">Фиджи</button><button type="button" data-value="FI" class="phone-multi__country">Финляндия</button><button type="button" data-value="FR" class="phone-multi__country">Франция</button><button type="button" data-value="GF" class="phone-multi__country">Французская Гвиана</button><button type="button" data-value="PF" class="phone-multi__country">Французская Полинезия</button><button type="button" data-value="GA" class="phone-multi__country">Габон</button><button type="button" data-value="GM" class="phone-multi__country">Гамбия</button><button type="button" data-value="GE" class="phone-multi__country">Грузия</button><button type="button" data-value="DE" class="phone-multi__country">Германия</button><button type="button" data-value="GH" class="phone-multi__country">Гана</button><button type="button" data-value="GI" class="phone-multi__country">Гибралтар</button><button type="button" data-value="GR" class="phone-multi__country">Греция</button><button type="button" data-value="GL" class="phone-multi__country">Гренландия</button><button type="button" data-value="GD" class="phone-multi__country">Гренада</button><button type="button" data-value="GP" class="phone-multi__country">Гваделупа</button><button type="button" data-value="GU" class="phone-multi__country">Гуам</button><button type="button" data-value="GT" class="phone-multi__country">Гватемала</button><button type="button" data-value="GG" class="phone-multi__country">Гернси</button><button type="button" data-value="GN" class="phone-multi__country">Гвинея</button><button type="button" data-value="GW" class="phone-multi__country">Гвинея-Бисау</button><button type="button" data-value="GY" class="phone-multi__country">Гайана</button><button type="button" data-value="HT" class="phone-multi__country">Гаити</button><button type="button" data-value="VA" class="phone-multi__country">Святой Престол (Государство-город Ватикан)</button><button type="button" data-value="HN" class="phone-multi__country">Гондурас</button><button type="button" data-value="HK" class="phone-multi__country">Гонконг</button><button type="button" data-value="HU" class="phone-multi__country">Венгрия</button><button type="button" data-value="IS" class="phone-multi__country">Исландия</button><button type="button" data-value="IN" class="phone-multi__country">Индия</button><button type="button" data-value="ID" class="phone-multi__country">Индонезия</button><button type="button" data-value="IR" class="phone-multi__country">Иран</button><button type="button" data-value="IQ" class="phone-multi__country">Ирак</button><button type="button" data-value="IE" class="phone-multi__country">Ирландия</button><button type="button" data-value="IM" class="phone-multi__country">Остров Мэн</button><button type="button" data-value="IL" class="phone-multi__country">Израиль</button><button type="button" data-value="IT" class="phone-multi__country">Италия</button><button type="button" data-value="CI" class="phone-multi__country">Кот-д’Ивуар</button><button type="button" data-value="JM" class="phone-multi__country">Ямайка</button><button type="button" data-value="JP" class="phone-multi__country">Япония</button><button type="button" data-value="JE" class="phone-multi__country">Джерси</button><button type="button" data-value="JO" class="phone-multi__country">Иордания</button><button type="button" data-value="KZ" class="phone-multi__country">Казахстан</button><button type="button" data-value="KE" class="phone-multi__country">Кения</button><button type="button" data-value="KI" class="phone-multi__country">Кирибати</button><button type="button" data-value="KP" class="phone-multi__country">Корейская Народно-Демократическая Республика (КНДР)</button><button type="button" data-value="KR" class="phone-multi__country">Республика Корея</button><button type="button" data-value="XK" class="phone-multi__country">Косово</button><button type="button" data-value="KW" class="phone-multi__country">Кувейт</button><button type="button" data-value="KG" class="phone-multi__country">Киргизия</button><button type="button" data-value="LA" class="phone-multi__country">Лаос</button><button type="button" data-value="LV" class="phone-multi__country">Латвия</button><button type="button" data-value="LB" class="phone-multi__country">Ливан</button><button type="button" data-value="LS" class="phone-multi__country">Лесото</button><button type="button" data-value="LR" class="phone-multi__country">Либерия</button><button type="button" data-value="LY" class="phone-multi__country">Ливия</button><button type="button" data-value="LI" class="phone-multi__country">Лихтенштейн</button><button type="button" data-value="LT" class="phone-multi__country">Литва</button><button type="button" data-value="LU" class="phone-multi__country">Люксембург</button><button type="button" data-value="MO" class="phone-multi__country">Макао</button><button type="button" data-value="MG" class="phone-multi__country">Мадагаскар</button><button type="button" data-value="MW" class="phone-multi__country">Малави</button><button type="button" data-value="MY" class="phone-multi__country">Малайзия</button><button type="button" data-value="MV" class="phone-multi__country">Мальдивы</button><button type="button" data-value="ML" class="phone-multi__country">Мали</button><button type="button" data-value="MT" class="phone-multi__country">Мальта</button><button type="button" data-value="MH" class="phone-multi__country">Маршалловы Острова</button><button type="button" data-value="MQ" class="phone-multi__country">Мартиника</button><button type="button" data-value="MR" class="phone-multi__country">Мавритания</button><button type="button" data-value="MU" class="phone-multi__country">Маврикий</button><button type="button" data-value="YT" class="phone-multi__country">Майотта</button><button type="button" data-value="MX" class="phone-multi__country">Мексика</button><button type="button" data-value="FM" class="phone-multi__country">Федеративные Штаты Микронезии</button><button type="button" data-value="MD" class="phone-multi__country">Молдова</button><button type="button" data-value="MC" class="phone-multi__country">Монако</button><button type="button" data-value="MN" class="phone-multi__country">Монголия</button><button type="button" data-value="ME" class="phone-multi__country">Черногория</button><button type="button" data-value="MA" class="phone-multi__country">Марокко</button><button type="button" data-value="MZ" class="phone-multi__country">Мозамбик</button><button type="button" data-value="MM" class="phone-multi__country">Мьянма</button><button type="button" data-value="NA" class="phone-multi__country">Намибия</button><button type="button" data-value="NR" class="phone-multi__country">Науру</button><button type="button" data-value="NP" class="phone-multi__country">Непал</button><button type="button" data-value="NL" class="phone-multi__country">Нидерланды</button><button type="button" data-value="NC" class="phone-multi__country">Новая Каледония</button><button type="button" data-value="NZ" class="phone-multi__country">Новая Зеландия</button><button type="button" data-value="NI" class="phone-multi__country">Никарагуа</button><button type="button" data-value="NE" class="phone-multi__country">Нигер</button><button type="button" data-value="NG" class="phone-multi__country">Нигерия</button><button type="button" data-value="NU" class="phone-multi__country">Ниуэ</button><button type="button" data-value="NF" class="phone-multi__country">Норфолк</button><button type="button" data-value="MK" class="phone-multi__country">Северная Македония</button><button type="button" data-value="MP" class="phone-multi__country">Северные Марианские Острова</button><button type="button" data-value="NO" class="phone-multi__country">Норвегия</button><button type="button" data-value="OM" class="phone-multi__country">Оман</button><button type="button" data-value="PK" class="phone-multi__country">Пакистан</button><button type="button" data-value="PW" class="phone-multi__country">Палау</button><button type="button" data-value="PS" class="phone-multi__country">Палестина</button><button type="button" data-value="PA" class="phone-multi__country">Панама</button><button type="button" data-value="PG" class="phone-multi__country">Папуа - Новая Гвинея</button><button type="button" data-value="PY" class="phone-multi__country">Парагвай</button><button type="button" data-value="PE" class="phone-multi__country">Перу</button><button type="button" data-value="PH" class="phone-multi__country">Филиппины</button><button type="button" data-value="PN" class="phone-multi__country">Острова Питкэрн</button><button type="button" data-value="PL" class="phone-multi__country">Польша</button><button type="button" data-value="PT" class="phone-multi__country">Португалия</button><button type="button" data-value="PR" class="phone-multi__country">Пуэрто-Рико</button><button type="button" data-value="QA" class="phone-multi__country">Катар</button><button type="button" data-value="RO" class="phone-multi__country">Румыния</button><button type="button" data-value="RU" class="phone-multi__country is-active">Россия</button><button type="button" data-value="RW" class="phone-multi__country">Руанда</button><button type="button" data-value="BL" class="phone-multi__country">Сен-Бартелеми</button><button type="button" data-value="SH" class="phone-multi__country">Острова Святой Елены</button><button type="button" data-value="KN" class="phone-multi__country">Сент-Китс и Невис</button><button type="button" data-value="LC" class="phone-multi__country">Сент-Люсия</button><button type="button" data-value="MF" class="phone-multi__country">Сен-Мартен</button><button type="button" data-value="PM" class="phone-multi__country">Сен-Пьер и Микелон</button><button type="button" data-value="VC" class="phone-multi__country">Сент-Винсент и Гренадины</button><button type="button" data-value="WS" class="phone-multi__country">Самоа</button><button type="button" data-value="SM" class="phone-multi__country">Сан-Марино</button><button type="button" data-value="ST" class="phone-multi__country">Сан-Томе и Принсипи</button><button type="button" data-value="SA" class="phone-multi__country">Саудовская Аравия</button><button type="button" data-value="SN" class="phone-multi__country">Сенегал</button><button type="button" data-value="RS" class="phone-multi__country">Сербия</button><button type="button" data-value="SC" class="phone-multi__country">Сейшельские Острова</button><button type="button" data-value="SL" class="phone-multi__country">Сьерра-Леоне</button><button type="button" data-value="SG" class="phone-multi__country">Сингапур</button><button type="button" data-value="SX" class="phone-multi__country">Синт-Мартен</button><button type="button" data-value="SK" class="phone-multi__country">Словакия</button><button type="button" data-value="SI" class="phone-multi__country">Словения</button><button type="button" data-value="SB" class="phone-multi__country">Соломоновы Острова</button><button type="button" data-value="SO" class="phone-multi__country">Сомали</button><button type="button" data-value="ZA" class="phone-multi__country">Южная Африка</button><button type="button" data-value="GS" class="phone-multi__country">Южная Георгия и Южные Сандвичевы Острова</button><button type="button" data-value="SS" class="phone-multi__country">Южный Судан</button><button type="button" data-value="ES" class="phone-multi__country">Испания</button><button type="button" data-value="LK" class="phone-multi__country">Шри-Ланка</button><button type="button" data-value="SD" class="phone-multi__country">Судан</button><button type="button" data-value="SJ" class="phone-multi__country">Шпицберген и Ян-Майен</button><button type="button" data-value="SE" class="phone-multi__country">Швеция</button><button type="button" data-value="CH" class="phone-multi__country">Швейцария</button><button type="button" data-value="SY" class="phone-multi__country">Сирия</button><button type="button" data-value="TW" class="phone-multi__country">Тайвань</button><button type="button" data-value="TJ" class="phone-multi__country">Таджикистан</button><button type="button" data-value="TZ" class="phone-multi__country">Танзания</button><button type="button" data-value="TH" class="phone-multi__country">Таиланд</button><button type="button" data-value="TL" class="phone-multi__country">Восточный Тимор</button><button type="button" data-value="TG" class="phone-multi__country">Того</button><button type="button" data-value="TK" class="phone-multi__country">Токелау</button><button type="button" data-value="TO" class="phone-multi__country">Тонга</button><button type="button" data-value="TT" class="phone-multi__country">Тринидад и Тобаго</button><button type="button" data-value="TN" class="phone-multi__country">Тунис</button><button type="button" data-value="TR" class="phone-multi__country">Турция</button><button type="button" data-value="TM" class="phone-multi__country">Туркменистан</button><button type="button" data-value="TC" class="phone-multi__country">Теркс и Кайкос</button><button type="button" data-value="TV" class="phone-multi__country">Тувалу</button><button type="button" data-value="UG" class="phone-multi__country">Уганда</button><button type="button" data-value="UA" class="phone-multi__country">Украина</button><button type="button" data-value="AE" class="phone-multi__country">ОАЭ</button><button type="button" data-value="GB" class="phone-multi__country">Великобритания</button><button type="button" data-value="US" class="phone-multi__country">США</button><button type="button" data-value="UY" class="phone-multi__country">Уругвай</button><button type="button" data-value="UZ" class="phone-multi__country">Узбекистан</button><button type="button" data-value="VU" class="phone-multi__country">Вануату</button><button type="button" data-value="VE" class="phone-multi__country">Венесуэла</button><button type="button" data-value="VN" class="phone-multi__country">Вьетнам</button><button type="button" data-value="VG" class="phone-multi__country">Виргинские Острова</button><button type="button" data-value="VI" class="phone-multi__country">Виргинские острова США</button><button type="button" data-value="WF" class="phone-multi__country">Уоллис и Футуна</button><button type="button" data-value="YE" class="phone-multi__country">Йемен</button><button type="button" data-value="ZM" class="phone-multi__country">Замбия</button><button type="button" data-value="ZW" class="phone-multi__country">Зимбабве</button></div>
+                  </div>
+                </div>
+              </div>
+              <div class="form-element">
+                <div class="form-element__wrap">
+                  <div class="form-element__field-wrap">
+                    <input type="password" name="password" class="input input--password form-element__field" placeholder="Пароль">
+                  </div>
+                </div>
+              </div>
+              <a href="#" class="modal__form-recovery">Забыли пароль?</a>
+            </div>
+            <div class="modal__form-controls">
+              <button type="submit" class="btn btn--large">Войти</button>
+              <button type="submit" class="btn btn--large modal__form-btn-vk btn--tertiary">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#vk"></use>
+                </svg>
+                <span>Войти через VK&nbsp;ID</span>
+              </button>
+            </div>
+            <div class="modal__form-links">
+              <p class="modal__form-link">Нет аккаунта? <label for="registration-content">Создайте его</label></p>
+            </div>
+          </form>
+        </div>
+        <div class="modal__content" data-type="registration-content">
+          <form action="#" class="modal__form">
+            <div class="modal__form-body">
+              <div class="form-element">
+                <div class="form-element__wrap">
+                  <div class="form-element__field-wrap">
+                    <input type="text" name="name" class="input input--user form-element__field" placeholder="Имя">
+                  </div>
+                  <div class="form-element__error">Укажите ваше имя</div>
+                </div>
+              </div>
+              <div class="form-element">
+                <div class="phone-multi">
+                  <input type="hidden" name="phone" class="phone-multi__input-value">
+                  <div class="phone-multi__inner">
+                    <button type="button" class="phone-multi__country-btn">
+                      <img src="assets/flags/RU.svg" alt="">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                        <path d="M7.5 12L2.73686 5.25L12.2631 5.25L7.5 12Z" fill="#8291AF"></path>
+                      </svg>
+                    </button>
+                    <label class="phone-multi__input-wrap">
+                      <span class="phone-multi__code">+7</span>
+                      <input type="tel" class="phone-multi__input" placeholder="(___) ___-__-__" inputmode="text">
+                    </label>
+                  </div>
+                  <div class="phone-multi__dropdown">
+                    <input type="text" class="phone-multi__search" placeholder="Поиск по странам">
+                    <div class="phone-multi__country-list"><button type="button" data-value="AF" class="phone-multi__country">Афганистан</button><button type="button" data-value="AX" class="phone-multi__country">Аландские острова</button><button type="button" data-value="AL" class="phone-multi__country">Албания</button><button type="button" data-value="DZ" class="phone-multi__country">Алжир</button><button type="button" data-value="AD" class="phone-multi__country">Андорра</button><button type="button" data-value="AO" class="phone-multi__country">Ангола</button><button type="button" data-value="AI" class="phone-multi__country">Ангилья</button><button type="button" data-value="AG" class="phone-multi__country">Антигуа и Барбуда</button><button type="button" data-value="AR" class="phone-multi__country">Аргентина</button><button type="button" data-value="AM" class="phone-multi__country">Армения</button><button type="button" data-value="AW" class="phone-multi__country">Аруба</button><button type="button" data-value="AU" class="phone-multi__country">Австралия</button><button type="button" data-value="AT" class="phone-multi__country">Австрия</button><button type="button" data-value="AZ" class="phone-multi__country">Азербайджан</button><button type="button" data-value="BS" class="phone-multi__country">Багамские острова</button><button type="button" data-value="BH" class="phone-multi__country">Бахрейн</button><button type="button" data-value="BD" class="phone-multi__country">Бангладеш</button><button type="button" data-value="BB" class="phone-multi__country">Барбадос</button><button type="button" data-value="BY" class="phone-multi__country">Беларусь</button><button type="button" data-value="BE" class="phone-multi__country">Бельгия</button><button type="button" data-value="BZ" class="phone-multi__country">Белиз</button><button type="button" data-value="BJ" class="phone-multi__country">Бенин</button><button type="button" data-value="BM" class="phone-multi__country">Бермуды</button><button type="button" data-value="BT" class="phone-multi__country">Бутан</button><button type="button" data-value="BO" class="phone-multi__country">Боливия</button><button type="button" data-value="BA" class="phone-multi__country">Босния и Герцеговина</button><button type="button" data-value="BW" class="phone-multi__country">Ботсвана</button><button type="button" data-value="BR" class="phone-multi__country">Бразилия</button><button type="button" data-value="BN" class="phone-multi__country">Бруней-Даруссалам</button><button type="button" data-value="BG" class="phone-multi__country">Болгария</button><button type="button" data-value="BF" class="phone-multi__country">Буркина-Фасо</button><button type="button" data-value="BI" class="phone-multi__country">Бурунди</button><button type="button" data-value="KH" class="phone-multi__country">Камбоджа</button><button type="button" data-value="CM" class="phone-multi__country">Камерун</button><button type="button" data-value="CA" class="phone-multi__country">Канада</button><button type="button" data-value="CV" class="phone-multi__country">Кабо-Верде</button><button type="button" data-value="KY" class="phone-multi__country">Каймановы острова</button><button type="button" data-value="CF" class="phone-multi__country">Центральноафриканская Республика</button><button type="button" data-value="TD" class="phone-multi__country">Чад</button><button type="button" data-value="CL" class="phone-multi__country">Чили</button><button type="button" data-value="CN" class="phone-multi__country">Китай</button><button type="button" data-value="CX" class="phone-multi__country">Остров Рождества</button><button type="button" data-value="CC" class="phone-multi__country">Кокосовые (Килинг) острова</button><button type="button" data-value="CO" class="phone-multi__country">Колумбия</button><button type="button" data-value="KM" class="phone-multi__country">Коморы</button><button type="button" data-value="CG" class="phone-multi__country">Конго</button><button type="button" data-value="CK" class="phone-multi__country">Острова Кука</button><button type="button" data-value="CR" class="phone-multi__country">Коста-Рика</button><button type="button" data-value="HR" class="phone-multi__country">Хорватия</button><button type="button" data-value="CU" class="phone-multi__country">Куба</button><button type="button" data-value="CY" class="phone-multi__country">Кипр</button><button type="button" data-value="CZ" class="phone-multi__country">Чехия</button><button type="button" data-value="CD" class="phone-multi__country">Демократическая Республика Конго</button><button type="button" data-value="DK" class="phone-multi__country">Дания</button><button type="button" data-value="DJ" class="phone-multi__country">Джибути</button><button type="button" data-value="DM" class="phone-multi__country">Доминика</button><button type="button" data-value="DO" class="phone-multi__country">Доминиканская Республика</button><button type="button" data-value="EC" class="phone-multi__country">Эквадор</button><button type="button" data-value="EG" class="phone-multi__country">Египет</button><button type="button" data-value="SV" class="phone-multi__country">Сальвадор</button><button type="button" data-value="GQ" class="phone-multi__country">Экваториальная Гвинея</button><button type="button" data-value="ER" class="phone-multi__country">Эритрея</button><button type="button" data-value="EE" class="phone-multi__country">Эстония</button><button type="button" data-value="SZ" class="phone-multi__country">Эсватини</button><button type="button" data-value="ET" class="phone-multi__country">Эфиопия</button><button type="button" data-value="FK" class="phone-multi__country">Фолклендские (Мальвинские) острова</button><button type="button" data-value="FO" class="phone-multi__country">Фарерские острова</button><button type="button" data-value="FJ" class="phone-multi__country">Фиджи</button><button type="button" data-value="FI" class="phone-multi__country">Финляндия</button><button type="button" data-value="FR" class="phone-multi__country">Франция</button><button type="button" data-value="GF" class="phone-multi__country">Французская Гвиана</button><button type="button" data-value="PF" class="phone-multi__country">Французская Полинезия</button><button type="button" data-value="GA" class="phone-multi__country">Габон</button><button type="button" data-value="GM" class="phone-multi__country">Гамбия</button><button type="button" data-value="GE" class="phone-multi__country">Грузия</button><button type="button" data-value="DE" class="phone-multi__country">Германия</button><button type="button" data-value="GH" class="phone-multi__country">Гана</button><button type="button" data-value="GI" class="phone-multi__country">Гибралтар</button><button type="button" data-value="GR" class="phone-multi__country">Греция</button><button type="button" data-value="GL" class="phone-multi__country">Гренландия</button><button type="button" data-value="GD" class="phone-multi__country">Гренада</button><button type="button" data-value="GP" class="phone-multi__country">Гваделупа</button><button type="button" data-value="GU" class="phone-multi__country">Гуам</button><button type="button" data-value="GT" class="phone-multi__country">Гватемала</button><button type="button" data-value="GG" class="phone-multi__country">Гернси</button><button type="button" data-value="GN" class="phone-multi__country">Гвинея</button><button type="button" data-value="GW" class="phone-multi__country">Гвинея-Бисау</button><button type="button" data-value="GY" class="phone-multi__country">Гайана</button><button type="button" data-value="HT" class="phone-multi__country">Гаити</button><button type="button" data-value="VA" class="phone-multi__country">Святой Престол (Государство-город Ватикан)</button><button type="button" data-value="HN" class="phone-multi__country">Гондурас</button><button type="button" data-value="HK" class="phone-multi__country">Гонконг</button><button type="button" data-value="HU" class="phone-multi__country">Венгрия</button><button type="button" data-value="IS" class="phone-multi__country">Исландия</button><button type="button" data-value="IN" class="phone-multi__country">Индия</button><button type="button" data-value="ID" class="phone-multi__country">Индонезия</button><button type="button" data-value="IR" class="phone-multi__country">Иран</button><button type="button" data-value="IQ" class="phone-multi__country">Ирак</button><button type="button" data-value="IE" class="phone-multi__country">Ирландия</button><button type="button" data-value="IM" class="phone-multi__country">Остров Мэн</button><button type="button" data-value="IL" class="phone-multi__country">Израиль</button><button type="button" data-value="IT" class="phone-multi__country">Италия</button><button type="button" data-value="CI" class="phone-multi__country">Кот-д’Ивуар</button><button type="button" data-value="JM" class="phone-multi__country">Ямайка</button><button type="button" data-value="JP" class="phone-multi__country">Япония</button><button type="button" data-value="JE" class="phone-multi__country">Джерси</button><button type="button" data-value="JO" class="phone-multi__country">Иордания</button><button type="button" data-value="KZ" class="phone-multi__country">Казахстан</button><button type="button" data-value="KE" class="phone-multi__country">Кения</button><button type="button" data-value="KI" class="phone-multi__country">Кирибати</button><button type="button" data-value="KP" class="phone-multi__country">Корейская Народно-Демократическая Республика (КНДР)</button><button type="button" data-value="KR" class="phone-multi__country">Республика Корея</button><button type="button" data-value="XK" class="phone-multi__country">Косово</button><button type="button" data-value="KW" class="phone-multi__country">Кувейт</button><button type="button" data-value="KG" class="phone-multi__country">Киргизия</button><button type="button" data-value="LA" class="phone-multi__country">Лаос</button><button type="button" data-value="LV" class="phone-multi__country">Латвия</button><button type="button" data-value="LB" class="phone-multi__country">Ливан</button><button type="button" data-value="LS" class="phone-multi__country">Лесото</button><button type="button" data-value="LR" class="phone-multi__country">Либерия</button><button type="button" data-value="LY" class="phone-multi__country">Ливия</button><button type="button" data-value="LI" class="phone-multi__country">Лихтенштейн</button><button type="button" data-value="LT" class="phone-multi__country">Литва</button><button type="button" data-value="LU" class="phone-multi__country">Люксембург</button><button type="button" data-value="MO" class="phone-multi__country">Макао</button><button type="button" data-value="MG" class="phone-multi__country">Мадагаскар</button><button type="button" data-value="MW" class="phone-multi__country">Малави</button><button type="button" data-value="MY" class="phone-multi__country">Малайзия</button><button type="button" data-value="MV" class="phone-multi__country">Мальдивы</button><button type="button" data-value="ML" class="phone-multi__country">Мали</button><button type="button" data-value="MT" class="phone-multi__country">Мальта</button><button type="button" data-value="MH" class="phone-multi__country">Маршалловы Острова</button><button type="button" data-value="MQ" class="phone-multi__country">Мартиника</button><button type="button" data-value="MR" class="phone-multi__country">Мавритания</button><button type="button" data-value="MU" class="phone-multi__country">Маврикий</button><button type="button" data-value="YT" class="phone-multi__country">Майотта</button><button type="button" data-value="MX" class="phone-multi__country">Мексика</button><button type="button" data-value="FM" class="phone-multi__country">Федеративные Штаты Микронезии</button><button type="button" data-value="MD" class="phone-multi__country">Молдова</button><button type="button" data-value="MC" class="phone-multi__country">Монако</button><button type="button" data-value="MN" class="phone-multi__country">Монголия</button><button type="button" data-value="ME" class="phone-multi__country">Черногория</button><button type="button" data-value="MA" class="phone-multi__country">Марокко</button><button type="button" data-value="MZ" class="phone-multi__country">Мозамбик</button><button type="button" data-value="MM" class="phone-multi__country">Мьянма</button><button type="button" data-value="NA" class="phone-multi__country">Намибия</button><button type="button" data-value="NR" class="phone-multi__country">Науру</button><button type="button" data-value="NP" class="phone-multi__country">Непал</button><button type="button" data-value="NL" class="phone-multi__country">Нидерланды</button><button type="button" data-value="NC" class="phone-multi__country">Новая Каледония</button><button type="button" data-value="NZ" class="phone-multi__country">Новая Зеландия</button><button type="button" data-value="NI" class="phone-multi__country">Никарагуа</button><button type="button" data-value="NE" class="phone-multi__country">Нигер</button><button type="button" data-value="NG" class="phone-multi__country">Нигерия</button><button type="button" data-value="NU" class="phone-multi__country">Ниуэ</button><button type="button" data-value="NF" class="phone-multi__country">Норфолк</button><button type="button" data-value="MK" class="phone-multi__country">Северная Македония</button><button type="button" data-value="MP" class="phone-multi__country">Северные Марианские Острова</button><button type="button" data-value="NO" class="phone-multi__country">Норвегия</button><button type="button" data-value="OM" class="phone-multi__country">Оман</button><button type="button" data-value="PK" class="phone-multi__country">Пакистан</button><button type="button" data-value="PW" class="phone-multi__country">Палау</button><button type="button" data-value="PS" class="phone-multi__country">Палестина</button><button type="button" data-value="PA" class="phone-multi__country">Панама</button><button type="button" data-value="PG" class="phone-multi__country">Папуа - Новая Гвинея</button><button type="button" data-value="PY" class="phone-multi__country">Парагвай</button><button type="button" data-value="PE" class="phone-multi__country">Перу</button><button type="button" data-value="PH" class="phone-multi__country">Филиппины</button><button type="button" data-value="PN" class="phone-multi__country">Острова Питкэрн</button><button type="button" data-value="PL" class="phone-multi__country">Польша</button><button type="button" data-value="PT" class="phone-multi__country">Португалия</button><button type="button" data-value="PR" class="phone-multi__country">Пуэрто-Рико</button><button type="button" data-value="QA" class="phone-multi__country">Катар</button><button type="button" data-value="RO" class="phone-multi__country">Румыния</button><button type="button" data-value="RU" class="phone-multi__country is-active">Россия</button><button type="button" data-value="RW" class="phone-multi__country">Руанда</button><button type="button" data-value="BL" class="phone-multi__country">Сен-Бартелеми</button><button type="button" data-value="SH" class="phone-multi__country">Острова Святой Елены</button><button type="button" data-value="KN" class="phone-multi__country">Сент-Китс и Невис</button><button type="button" data-value="LC" class="phone-multi__country">Сент-Люсия</button><button type="button" data-value="MF" class="phone-multi__country">Сен-Мартен</button><button type="button" data-value="PM" class="phone-multi__country">Сен-Пьер и Микелон</button><button type="button" data-value="VC" class="phone-multi__country">Сент-Винсент и Гренадины</button><button type="button" data-value="WS" class="phone-multi__country">Самоа</button><button type="button" data-value="SM" class="phone-multi__country">Сан-Марино</button><button type="button" data-value="ST" class="phone-multi__country">Сан-Томе и Принсипи</button><button type="button" data-value="SA" class="phone-multi__country">Саудовская Аравия</button><button type="button" data-value="SN" class="phone-multi__country">Сенегал</button><button type="button" data-value="RS" class="phone-multi__country">Сербия</button><button type="button" data-value="SC" class="phone-multi__country">Сейшельские Острова</button><button type="button" data-value="SL" class="phone-multi__country">Сьерра-Леоне</button><button type="button" data-value="SG" class="phone-multi__country">Сингапур</button><button type="button" data-value="SX" class="phone-multi__country">Синт-Мартен</button><button type="button" data-value="SK" class="phone-multi__country">Словакия</button><button type="button" data-value="SI" class="phone-multi__country">Словения</button><button type="button" data-value="SB" class="phone-multi__country">Соломоновы Острова</button><button type="button" data-value="SO" class="phone-multi__country">Сомали</button><button type="button" data-value="ZA" class="phone-multi__country">Южная Африка</button><button type="button" data-value="GS" class="phone-multi__country">Южная Георгия и Южные Сандвичевы Острова</button><button type="button" data-value="SS" class="phone-multi__country">Южный Судан</button><button type="button" data-value="ES" class="phone-multi__country">Испания</button><button type="button" data-value="LK" class="phone-multi__country">Шри-Ланка</button><button type="button" data-value="SD" class="phone-multi__country">Судан</button><button type="button" data-value="SJ" class="phone-multi__country">Шпицберген и Ян-Майен</button><button type="button" data-value="SE" class="phone-multi__country">Швеция</button><button type="button" data-value="CH" class="phone-multi__country">Швейцария</button><button type="button" data-value="SY" class="phone-multi__country">Сирия</button><button type="button" data-value="TW" class="phone-multi__country">Тайвань</button><button type="button" data-value="TJ" class="phone-multi__country">Таджикистан</button><button type="button" data-value="TZ" class="phone-multi__country">Танзания</button><button type="button" data-value="TH" class="phone-multi__country">Таиланд</button><button type="button" data-value="TL" class="phone-multi__country">Восточный Тимор</button><button type="button" data-value="TG" class="phone-multi__country">Того</button><button type="button" data-value="TK" class="phone-multi__country">Токелау</button><button type="button" data-value="TO" class="phone-multi__country">Тонга</button><button type="button" data-value="TT" class="phone-multi__country">Тринидад и Тобаго</button><button type="button" data-value="TN" class="phone-multi__country">Тунис</button><button type="button" data-value="TR" class="phone-multi__country">Турция</button><button type="button" data-value="TM" class="phone-multi__country">Туркменистан</button><button type="button" data-value="TC" class="phone-multi__country">Теркс и Кайкос</button><button type="button" data-value="TV" class="phone-multi__country">Тувалу</button><button type="button" data-value="UG" class="phone-multi__country">Уганда</button><button type="button" data-value="UA" class="phone-multi__country">Украина</button><button type="button" data-value="AE" class="phone-multi__country">ОАЭ</button><button type="button" data-value="GB" class="phone-multi__country">Великобритания</button><button type="button" data-value="US" class="phone-multi__country">США</button><button type="button" data-value="UY" class="phone-multi__country">Уругвай</button><button type="button" data-value="UZ" class="phone-multi__country">Узбекистан</button><button type="button" data-value="VU" class="phone-multi__country">Вануату</button><button type="button" data-value="VE" class="phone-multi__country">Венесуэла</button><button type="button" data-value="VN" class="phone-multi__country">Вьетнам</button><button type="button" data-value="VG" class="phone-multi__country">Виргинские Острова</button><button type="button" data-value="VI" class="phone-multi__country">Виргинские острова США</button><button type="button" data-value="WF" class="phone-multi__country">Уоллис и Футуна</button><button type="button" data-value="YE" class="phone-multi__country">Йемен</button><button type="button" data-value="ZM" class="phone-multi__country">Замбия</button><button type="button" data-value="ZW" class="phone-multi__country">Зимбабве</button></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal__form-controls">
+              <div class="modal__form-info">Нажимая кнопку «Создать аккаунт» я&nbsp;подтверждаю, что ознакомился и&nbsp;принимаю <a href="#">правилах обработки данных</a>.</div>
+              <button type="submit" class="btn btn--large">Создать аккаунт</button>
+              <button type="submit" class="btn btn--large modal__form-btn-vk btn--tertiary">
+                <svg class="icon">
+                  <use xlink:href="<%= asset_path('sprite.svg') %>#vk"></use>
+                </svg>
+                <span>Создать аккаунт через VK&nbsp;ID</span>
+              </button>
+            </div>
+            <div class="modal__form-links">
+              <p class="modal__form-link">Уже есть аккаунт? <label for="login-content">Войдите</label></p>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal__close" data-fancybox-close="">
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
+          <path d="M26.6667 26.6667L53.3334 53.3333" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+          <path d="M53.3334 26.6667L26.6667 53.3333" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+        </svg>
+      </div>
+    </div>
+    <div class="modal-logout">
+      <div class="modal-logout__content">
+        <div class="modal-logout__title">Выйти из&nbsp;вашего профиля?</div>
+        <label class="toggle">
+          <div class="toggle__content">Запомнить данные для вход</div>
+          <input type="checkbox" name="remember" class="toggle__input">
+          <div class="toggle__control"></div>
+        </label>
+        <div class="modal-logout__controls">
+          <button type="button" class="btn modal-logout__close">Отмена</button>
+          <button type="button" class="btn btn--tertiary">Выйти</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tapbar">
+      <a href="/search" class="tapbar__control">
+        <svg class="icon">
+          <use xlink:href="<%= asset_path('sprite.svg') %>#search"></use>
+        </svg>
+        <svg class="icon">
+          <use xlink:href="<%= asset_path('sprite.svg') %>#close"></use>
+        </svg>
+      </a>
+      <div class="tapbar__control menu-btn-mobile-open">
+        <svg class="icon">
+          <use xlink:href="<%= asset_path('sprite.svg') %>#menu"></use>
+        </svg>
+        <svg class="icon">
+          <use xlink:href="<%= asset_path('sprite.svg') %>#close"></use>
+        </svg>
+      </div>
+
+      <div class="tapbar__control" data-modal="modal-login">
+        <svg class="icon">
+          <use xlink:href="assets/<%= asset_path('sprite.svg') %>#user"></use>
+        </svg>
+        <svg class="icon">
+          <use xlink:href="assets/<%= asset_path('sprite.svg') %>#close"></use>
+        </svg>
+      </div>
+    </div>
+
+    <div class="go-top">
+      <svg class="icon">
+        <use xlink:href="<%= asset_path('sprite.svg') %>#arrow-up-2"></use>
+      </svg>
+    </div>
+  </div>
   </body>
 </html>
