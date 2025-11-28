@@ -8,7 +8,7 @@ class CreateUsers < ActiveRecord::Migration[8.1]
       t.string :fio
       t.string :email
       t.column :gender, :gender, null: true
-      t.string :phone, null: false
+      t.string :phone
       t.string :password_digest, null: false
 
       t.timestamps
