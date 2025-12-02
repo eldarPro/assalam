@@ -19,3 +19,7 @@ test:
 production:
   <<: *default
   database: <%= ENV.fetch("DATABASE_NAME", "myapp_production") %>
+
+legacy:
+  <<: *default
+  database: assalam_web
